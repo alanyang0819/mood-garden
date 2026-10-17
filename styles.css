@@ -1,0 +1,163 @@
+:root {
+  --ink: #243a3d;
+  --muted: #718487;
+  --cream: #f8f6ef;
+  --paper: #fffefa;
+  --line: #e5e8de;
+  --green: #6b9181;
+  --green-dark: #3f6d60;
+  --lavender: #aaa1c8;
+  --shadow: 0 18px 45px rgba(67, 94, 82, .08);
+}
+
+* { box-sizing: border-box; }
+img, svg { max-width: 100%; }
+button, a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "Noto Sans TC", sans-serif;
+  overflow-x: hidden;
+}
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+.page-shell { width: min(100% - 48px, 1240px); margin: auto; padding: 0 0 34px; }
+.topbar { height: 86px; display: flex; align-items: center; justify-content: space-between; }
+.brand { color: var(--ink); text-decoration: none; font: 700 21px "Zen Maru Gothic", sans-serif; display: flex; gap: 10px; align-items: center; }
+.brand-mark { color: #d79484; font-size: 26px; }
+.today-label, .date-chip { color: var(--muted); font-size: 12px; letter-spacing: .08em; }
+.hero { min-height: 365px; border-radius: 26px; overflow: hidden; position: relative; background: #e8f0e8; display: flex; align-items: center; padding: 55px 70px; }
+.eyebrow, .section-kicker { margin: 0 0 13px; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .2em; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 16px; font: 700 clamp(38px, 5vw, 62px)/1.2 "Zen Maru Gothic", sans-serif; letter-spacing: -.04em; }
+h1 em { color: var(--green-dark); font-style: normal; }
+.hero-description { max-width: 310px; color: #668076; font-size: 15px; line-height: 1.9; }
+.scroll-link { display: inline-flex; gap: 12px; align-items: center; margin-top: 15px; color: var(--green-dark); font-size: 13px; font-weight: 700; text-decoration: none; }
+.scroll-link span { font-size: 20px; }
+.hero-art { position: absolute; inset: 0 0 0 48%; overflow: hidden; }
+.sun { position: absolute; top: 35px; right: 18%; color: #e9bd69; font-size: 70px; }
+.cloud { position: absolute; color: rgba(255,255,255,.7); font-size: 70px; }
+.cloud-one { top: 60px; left: 18%; }.cloud-two { top: 118px; right: 5%; font-size: 50px; }
+.hill { position: absolute; bottom: -95px; border-radius: 50% 50% 0 0; }
+.hill-back { width: 530px; height: 255px; left: 5%; background: #bdd1bd; }
+.hill-front { width: 650px; height: 225px; left: 33%; background: #94b69b; }
+.hero-flower { position: absolute; z-index: 1; bottom: 60px; color: #e38e8b; font-size: 43px; }
+.flower-one { left: 25%; }.flower-two { left: 55%; bottom: 85px; color: #f0c173; }.flower-three { right: 12%; bottom: 65px; color: #aaa1c8; }
+.content-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, .9fr); gap: 24px; margin-top: 24px; }
+.main-column, .side-column { display: flex; flex-direction: column; gap: 24px; }
+.card { background: var(--paper); border: 1px solid rgba(226,231,222,.8); border-radius: 20px; padding: 30px; box-shadow: var(--shadow); }
+.section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
+h2 { margin: 0; font: 700 22px "Zen Maru Gothic", sans-serif; letter-spacing: -.02em; }
+.mood-options { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 27px; }
+.mood-option { min-width: 0; border: 1px solid var(--line); border-radius: 14px; padding: 14px 6px 12px; color: var(--muted); background: #fff; transition: .2s ease; }
+.mood-option:hover { transform: translateY(-3px); border-color: var(--mood); }
+.mood-option.selected { color: var(--ink); border-color: var(--mood); background: color-mix(in srgb, var(--mood) 14%, white); box-shadow: inset 0 0 0 1px var(--mood); }
+.mood-icon { display: block; font-size: 26px; margin-bottom: 5px; }.mood-name { font-size: 12px; font-weight: 700; }
+.note-label { display: block; margin-bottom: 10px; font-size: 13px; font-weight: 700; }.note-label span { color: var(--muted); font-weight: 400; }
+textarea { width: 100%; min-height: 100px; resize: vertical; border: 1px solid var(--line); border-radius: 12px; padding: 15px; color: var(--ink); outline: none; background: #fcfcf8; line-height: 1.7; }
+textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(107,145,129,.12); }
+.form-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+.character-count { color: var(--muted); font-size: 11px; }.primary-button { border: 0; border-radius: 999px; padding: 12px 20px; color: #fff; background: var(--green-dark); font-weight: 700; transition: .2s; }.primary-button:hover { background: #31594e; transform: translateY(-2px); }.primary-button span { margin-left: 7px; }
+.form-message { min-height: 20px; margin: 13px 0 0; color: var(--green-dark); font-size: 12px; }.form-message.error { color: #c47770; }
+.saved { animation: saved-pop .7s ease; } @keyframes saved-pop { 50% { transform: scale(1.08); background: #78a991; } }
+.garden-heading { margin-bottom: 15px; }.garden-count { color: var(--muted); font-size: 12px; }.garden-count strong { color: var(--green-dark); font-size: 22px; margin-right: 4px; }
+.garden-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }.filter-buttons { display: flex; gap: 5px; flex-wrap: wrap; }.filter-button, .text-button { border: 0; color: var(--muted); background: transparent; font-size: 10px; }.filter-button { padding: 6px 9px; border-radius: 999px; }.filter-button.active { color: var(--green-dark); background: #eaf1e8; font-weight: 700; }.text-button { padding: 5px; text-decoration: underline; text-underline-offset: 3px; }.danger-button { color: #bd8079; }
+.garden-stage { min-height: 220px; display: flex; align-items: flex-end; justify-content: center; flex-wrap: wrap; gap: 13px; padding: 45px 22px 28px; position: relative; overflow: hidden; background: linear-gradient(#f4f6ee, #e9f0e2); border-radius: 14px; }
+.garden-ground { position: absolute; bottom: -75px; width: 125%; height: 150px; border-radius: 50%; background: #cadcc5; }
+.empty-garden { z-index: 1; align-self: center; margin: 0; color: #88a296; font-size: 13px; }
+.plant { z-index: 1; display: flex; flex-direction: column; align-items: center; border: 0; padding: 0; background: transparent; animation: grow .5s ease both; }.plant:hover { transform: translateY(-8px) scale(1.13); }.plant-emoji { font-size: 35px; filter: saturate(.9); }.plant-date { margin-top: 3px; color: #789187; font-size: 9px; }.plant:nth-child(3n) { transform: translateY(-10px); }
+@keyframes grow { from { opacity: 0; transform: translateY(15px) scale(.7); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.plant-detail { display: flex; align-items: center; gap: 10px; min-height: 0; max-height: 0; overflow: hidden; margin-top: 0; padding: 0 12px; border-radius: 10px; color: var(--muted); background: #f5f7f1; font-size: 11px; line-height: 1.7; opacity: 0; transition: .25s ease; }.plant-detail.visible { min-height: 54px; max-height: 100px; margin-top: 12px; padding: 9px 12px; opacity: 1; }.detail-plant { font-size: 27px; }.plant-detail strong { color: var(--green-dark); }
+.garden-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; text-align: center; }.garden-stats div { padding: 10px; border-right: 1px solid var(--line); }.garden-stats div:last-child { border: 0; }.garden-stats span { display: block; color: var(--green-dark); font: 700 18px "Zen Maru Gothic", sans-serif; }.garden-stats small { color: var(--muted); font-size: 10px; }
+.calendar-tabs { display: flex; padding: 3px; margin-bottom: 20px; background: #f2f4ed; border-radius: 999px; }.calendar-tab { flex: 1; border: 0; border-radius: 999px; padding: 8px; color: var(--muted); background: transparent; font-size: 12px; }.calendar-tab.active { color: var(--green-dark); background: white; box-shadow: 0 2px 8px rgba(49,89,78,.08); font-weight: 700; }
+.calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }.calendar-header strong { font: 700 14px "Zen Maru Gothic", sans-serif; }.calendar-arrow { width: 28px; height: 28px; border: 0; border-radius: 50%; color: var(--green-dark); background: #f2f4ed; }.calendar-weekdays, .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }.calendar-weekdays { margin-bottom: 8px; color: var(--muted); font-size: 10px; }.calendar-day { min-width: 0; min-height: 44px; border: 1px solid transparent; border-radius: 9px; padding: 5px 2px; color: #84918c; background: transparent; font-size: 11px; }.calendar-day.other-month { opacity: .3; }.calendar-day.today { border-color: var(--green); color: var(--green-dark); font-weight: 700; }.calendar-day.has-entry { color: var(--ink); background: color-mix(in srgb, var(--mood) 22%, white); }.day-icon { display: block; margin-top: 2px; font-size: 15px; }.mood-legend { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line); }.legend-item { color: var(--muted); font-size: 10px; }.legend-dot { display: inline-block; width: 7px; height: 7px; margin-right: 3px; border-radius: 50%; background: var(--mood); }.selected-day { min-height: 40px; margin-top: 15px; padding: 11px; border-radius: 9px; color: var(--muted); background: #f7f8f3; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+.demo-button { width: 100%; margin: 0 0 16px; border: 1px dashed #b7cbbd; border-radius: 9px; padding: 8px; color: var(--green-dark); background: #f7faf5; font-size: 11px; }.demo-button:hover { background: #eaf3e8; }
+.history-card { padding-bottom: 18px; }.history-card .section-heading { margin-bottom: 12px; }.history-list { display: flex; flex-direction: column; }.history-item { display: flex; align-items: center; gap: 5px; border-bottom: 1px solid var(--line); }.history-item:last-child { border-bottom: 0; }.history-main { display: grid; grid-template-columns: 34px 76px 1fr; align-items: center; gap: 8px; flex: 1; min-width: 0; padding: 10px 0; border: 0; text-align: left; background: transparent; }.history-main:hover strong { color: var(--green-dark); }.history-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--mood) 20%, white); font-size: 18px; }.history-main strong, .history-main small { display: block; }.history-main strong { font-size: 12px; }.history-main small { margin-top: 2px; color: var(--muted); font-size: 9px; }.history-note { overflow: hidden; color: var(--muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }.delete-entry { border: 0; color: #bd8079; background: transparent; font-size: 18px; }.history-empty { margin: 8px 0; color: var(--muted); font-size: 12px; text-align: center; }
+.quote-card { position: relative; min-height: 145px; padding: 28px 32px; overflow: hidden; border-radius: 20px; color: #fff; background: var(--green-dark); }.quote-card p { position: relative; z-index: 1; margin: 19px 0 0; font: 500 17px/1.7 "Zen Maru Gothic", sans-serif; }.quote-mark { position: absolute; top: 3px; left: 25px; color: rgba(255,255,255,.22); font: 80px Georgia; }.quote-flower { position: absolute; right: 25px; bottom: 12px; color: #c9dfc9; font-size: 56px; }
+footer { padding: 28px 0 0; text-align: center; color: #9aaba2; font-size: 11px; }footer span { color: #d79484; }
+@media (max-width: 1080px) {
+  .page-shell { width: min(100% - 36px, 920px); }
+  .hero { padding: 48px; }
+  .hero-art { left: 44%; }
+  .content-grid { grid-template-columns: minmax(0, 1.25fr) minmax(280px, .9fr); gap: 18px; }
+  .card { padding: 24px; }
+}
+
+@media (max-width: 860px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .side-column { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr); align-items: start; }
+  .calendar-card { min-width: 0; }
+  .quote-card { min-height: 100%; }
+}
+
+@media (max-width: 680px) {
+  .page-shell { width: min(100% - 28px, 600px); padding-bottom: 22px; }
+  .topbar { height: 72px; }
+  .brand { font-size: 18px; }
+  .brand-mark { font-size: 23px; }
+  .today-label { font-size: 10px; }
+  .hero { min-height: 430px; align-items: flex-start; padding: 38px 28px; border-radius: 20px; }
+  h1 { font-size: clamp(36px, 10vw, 52px); }
+  .hero-description { max-width: 260px; font-size: 13px; }
+  .hero-art { top: 178px; left: 0; opacity: .8; }
+  .sun { top: 15px; right: 17%; font-size: 58px; }
+  .hill-back { width: 430px; height: 210px; }
+  .hill-front { width: 530px; height: 185px; }
+  .content-grid { margin-top: 16px; }
+  .main-column, .side-column { gap: 16px; }
+  .card { padding: 21px 17px; border-radius: 16px; }
+  .section-heading { margin-bottom: 20px; }
+  h2 { font-size: 19px; }
+  .mood-options { gap: 6px; margin-bottom: 21px; }
+  .mood-option { padding: 11px 3px 9px; border-radius: 11px; }
+  .mood-icon { font-size: 22px; }
+  .mood-name { font-size: 10px; }
+  .side-column { display: flex; }
+  .garden-toolbar { align-items: flex-start; flex-direction: column; }
+  .filter-buttons { width: 100%; }
+  .filter-button { padding: 6px 8px; }
+  .garden-stage { min-height: 190px; padding: 38px 12px 24px; gap: 10px; }
+  .plant-emoji { font-size: 31px; }
+  .garden-stats { margin-top: 13px; }
+  .garden-stats div { padding: 7px 3px; }
+  .garden-stats small { font-size: 9px; }
+  .history-main { grid-template-columns: 31px 64px minmax(0, 1fr); gap: 6px; }
+  .history-note { font-size: 10px; }
+}
+
+@media (max-width: 480px) {
+  .page-shell { width: calc(100% - 20px); }
+  .topbar { height: 64px; }
+  .brand { font-size: 16px; }
+  .today-label { max-width: 115px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hero { min-height: 420px; padding: 32px 21px; }
+  .eyebrow { font-size: 9px; letter-spacing: .14em; }
+  h1 { font-size: 35px; }
+  .hero-description { max-width: 210px; font-size: 12px; line-height: 1.7; }
+  .hero-art { top: 180px; }
+  .cloud { font-size: 52px; }
+  .cloud-two { font-size: 38px; }
+  .hero-flower { font-size: 34px; bottom: 50px; }
+  .section-heading { gap: 8px; }
+  .date-chip { font-size: 9px; white-space: nowrap; }
+  .mood-options { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+  .mood-option { padding: 9px 1px 8px; }
+  .mood-icon { font-size: 19px; }
+  .mood-name { font-size: 9px; }
+  .note-label { font-size: 12px; }
+  .note-label span { display: block; margin-top: 2px; }
+  .form-footer { align-items: flex-end; }
+  .primary-button { padding: 11px 15px; font-size: 12px; }
+  .calendar-day { min-height: 39px; font-size: 10px; }
+  .day-icon { font-size: 13px; }
+  .calendar-grid, .calendar-weekdays { gap: 3px; }
+  .calendar-header strong { font-size: 12px; }
+  .quote-card { min-height: 130px; padding: 24px; }
+  .quote-card p { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

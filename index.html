@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="每天種下一點心情，慢慢長成自己的心情花園。" />
+    <title>心情花園</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="回到心情花園首頁">
+          <span class="brand-mark">✿</span>
+          <span>心情花園</span>
+        </a>
+        <span class="today-label" id="todayLabel"></span>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="heroTitle">
+          <div class="hero-copy">
+            <p class="eyebrow">A little garden of feelings</p>
+            <h1 id="heroTitle">今天的你，<br /><em>是什麼天氣？</em></h1>
+            <p class="hero-description">不用急著整理好心情，先讓它有一個被看見的地方。</p>
+            <a class="scroll-link" href="#check-in">開始記錄 <span>↓</span></a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="sun">☼</span>
+            <span class="cloud cloud-one">☁</span>
+            <span class="cloud cloud-two">☁</span>
+            <span class="hill hill-back"></span>
+            <span class="hill hill-front"></span>
+            <span class="hero-flower flower-one">✿</span>
+            <span class="hero-flower flower-two">✿</span>
+            <span class="hero-flower flower-three">✿</span>
+          </div>
+        </section>
+
+        <section class="content-grid" id="check-in">
+          <div class="main-column">
+            <article class="card check-in-card">
+              <div class="section-heading">
+                <div>
+                  <p class="section-kicker">01 / CHECK IN</p>
+                  <h2>選一朵今天的心情</h2>
+                </div>
+                <span class="date-chip" id="formDate"></span>
+              </div>
+              <div class="mood-options" id="moodOptions" role="radiogroup" aria-label="今天的心情"></div>
+              <label class="note-label" for="noteInput">想對今天說些什麼？ <span>（也可以只留一個詞）</span></label>
+              <textarea id="noteInput" maxlength="120" placeholder="例如：午後的風很舒服，突然覺得慢一點也很好。"></textarea>
+              <div class="form-footer">
+                <span class="character-count"><span id="characterCount">0</span> / 120</span>
+                <button class="primary-button" id="saveButton" type="button">種下今天 <span>✦</span></button>
+              </div>
+              <p class="form-message" id="formMessage" role="status"></p>
+            </article>
+
+            <article class="card garden-card">
+              <div class="section-heading garden-heading">
+                <div>
+                  <p class="section-kicker">02 / YOUR GARDEN</p>
+                  <h2>你的心情正在長成一座花園</h2>
+                </div>
+                <span class="garden-count"><strong id="gardenCount">0</strong> 株植物</span>
+              </div>
+              <div class="garden-toolbar">
+                <div class="filter-buttons" id="gardenFilters" aria-label="篩選花園植物">
+                  <button class="filter-button active" data-filter="all" type="button">全部</button>
+                  <button class="filter-button" data-filter="happy" type="button">開心</button>
+                  <button class="filter-button" data-filter="calm" type="button">平靜</button>
+                  <button class="filter-button" data-filter="anxious" type="button">焦慮</button>
+                  <button class="filter-button" data-filter="low" type="button">低落</button>
+                  <button class="filter-button" data-filter="excited" type="button">期待</button>
+                </div>
+                <button class="text-button" id="todayButton" type="button">回到今天</button>
+              </div>
+              <div class="garden-stage" id="gardenStage">
+                <div class="garden-ground"></div>
+                <p class="empty-garden" id="emptyGarden">種下第一個心情，讓花園開始呼吸。</p>
+              </div>
+              <div class="plant-detail" id="plantDetail">點擊花園裡的植物，查看那一天的心情。</div>
+              <div class="garden-stats">
+                <div><span id="streakStat">0</span><small>紀錄天數</small></div>
+                <div><span id="favoriteStat">—</span><small>最常出現的心情</small></div>
+                <div><span id="latestStat">—</span><small>最近一次紀錄</small></div>
+              </div>
+            </article>
+            <article class="card history-card">
+              <div class="section-heading">
+                <div>
+                  <p class="section-kicker">04 / JOURNAL</p>
+                  <h2>最近的心情足跡</h2>
+                </div>
+                <button class="text-button danger-button" id="clearDataButton" type="button">清除全部</button>
+              </div>
+              <div class="history-list" id="historyList"></div>
+            </article>
+          </div>
+
+          <aside class="side-column">
+            <article class="card calendar-card">
+              <div class="section-heading">
+                <div>
+                  <p class="section-kicker">03 / MOOD CALENDAR</p>
+                  <h2>回顧你的心情</h2>
+                </div>
+              </div>
+              <div class="calendar-tabs" role="tablist" aria-label="日曆範圍">
+                <button class="calendar-tab active" data-view="week" role="tab" aria-selected="true" type="button">本週</button>
+                <button class="calendar-tab" data-view="month" role="tab" aria-selected="false" type="button">本月</button>
+              </div>
+              <div class="calendar-header">
+                <button class="calendar-arrow" id="previousPeriod" type="button" aria-label="上一個時間範圍">←</button>
+                <strong id="calendarTitle"></strong>
+                <button class="calendar-arrow" id="nextPeriod" type="button" aria-label="下一個時間範圍">→</button>
+              </div>
+              <button class="demo-button" id="demoButton" type="button">✦ 載入示範花園</button>
+              <div class="calendar-weekdays" aria-hidden="true">
+                <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+              </div>
+              <div class="calendar-grid" id="calendarGrid"></div>
+              <div class="mood-legend" id="moodLegend"></div>
+              <div class="selected-day" id="selectedDay">點擊有顏色的日期，看看那天留下的話。</div>
+            </article>
+            <div class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>每一種心情，<br />都值得一個被照顧的角落。</p>
+              <span class="quote-flower">✿</span>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer>Made gently for every version of you <span>✦</span></footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
